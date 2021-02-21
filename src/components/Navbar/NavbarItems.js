@@ -1,4 +1,4 @@
-export const NavbarItems = [
+const navbarItems = [
     {
         title: 'About',
         link: '/about',
@@ -13,6 +13,8 @@ export const NavbarItems = [
     },
     {
         title: 'Developer',
-        link: '/abput-me',
+        link: '/about-me',
     },
 ]
+
+export default navbarItems

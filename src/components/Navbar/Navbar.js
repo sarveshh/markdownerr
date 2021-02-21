@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import GithubSvg from '../../assets/githubsvg'
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
     return (
         <nav>
             <Link to="/" className="link">Markdownerr</Link>
             <div className="mobile-menu-icon">
-                <FaBars />
+                <FaBars onClick={toggle} />
             </div>
             <div className="menu-items">
                 {navbarItems.map((item, index) => (
@@ -19,9 +19,7 @@ const Navbar = () => {
                     </Link>
                 ))}
             </div>
-            <a tabindex="0" href="https://github.com/sarveshh/markdownerr" target="_blank" class="github-corner">
-                <GithubSvg />
-            </a>
+            <GithubSvg />
         </nav>
     )
 }

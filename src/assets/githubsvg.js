@@ -3,7 +3,7 @@ import './githubsvg.css'
 
 const GithubSvg = () => {
   return (
-    <a tabindex="0" href="https://github.com/sarveshh/handwriter" target="_blank" className="github-corner">
+    <a tabIndex="0" href="https://github.com/sarveshh/handwriter" target="_blank" className="github-corner">
       <svg width="80" height="80" viewBox="0 0 250 250" className="style1">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path

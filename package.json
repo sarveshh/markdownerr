@@ -1,42 +1,36 @@
 {
   "name": "markdownerr",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-icons": "^4.2.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
-    "remarkable": "^2.0.1",
-    "web-vitals": "^1.1.0"
+  "version": "1.0.0",
+  "description": "A fully fledged markdown parser, editor",
+  "main": "js/app.js",
+  "directories": {
+    "lib": "lib"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "serve .",
+    "devStart": "nodemon server.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "engines": {
+    "node": "12.14.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarveshh/markdownerr.git"
+  },
+  "keywords": [],
+  "author": "Sarvesh Patil <sarveshp273@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sarveshh/markdownerr/issues"
+  },
+  "homepage": "https://github.com/sarveshh/markdownerr#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "serve": "^11.3.2"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   }
 }

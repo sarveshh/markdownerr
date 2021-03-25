@@ -2,7 +2,7 @@
   "name": "markdownerr",
   "version": "1.0.0",
   "description": "A fully fledged markdown parser, editor",
-  "main": "js/app.js",
+  "main": "server.js",
   "directories": {
     "lib": "lib"
   },

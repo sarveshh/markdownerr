@@ -1,12 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="all" />
+  <meta name="googlebot" content="all" />
+  <meta name="geo.position" content="19.0760°N, 72.8777°E" />
+  <meta name="geo.placename" content="Mumbai, Maharashtra" />
+  <meta name="geo.region" content="India" />
+
+  <meta name="keywords" content="Markdowner, Markdown" />
+  <meta name="author" content="Sarvesh Patil" />
+
+  <link rel="icon" href="./assets/logo.svg" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+    integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/highlight.js/8.4.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4.0/styles/solarized_light.min.css" />
+  <title>Markdowner</title>
 </head>
+
 <body>
-    <p>this is an idiot tile</p>
+  <header>
+    <div class="logo_intro">
+      <img src="./assets/logo.svg" alt="Markdowner logo" class="logo" />
+      <span class="logo_name">Markdownerr</span>
+    </div>
+    <nav>
+      <ul class="nav_links">
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="cta">
+      <button>Contact</button>
+    </a>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="form-inline demo-options">
+        <div class="checkbox not-strict">
+          <label title="enable html tags in source text" class="_tip">
+            <input id="html" type="checkbox" /> html
+          </label>
+        </div>
+        <div class="checkbox not-strict">
+          <label title="newlines in paragraphs are rendered as &lt;br&gt;" class="_tip">
+            <input id="breaks" type="checkbox" /> breaks
+          </label>
+        </div>
+        <div class="checkbox not-strict">
+          <label title="do typographyc replacements, (c) -&gt; © and so on" class="_tip">
+            <input id="typographer" type="checkbox" /> typographer
+          </label>
+        </div>
+        <div class="checkbox not-strict">
+          <label title="enable output highlight for fenced blocks" class="_tip">
+            <input id="_highlight" type="checkbox" /> highlight
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container full-height content">
+      <div class="row split-one">
+        <div class="demo-control">
+          <a href="#" class="source-clear">clear</a><a id="permalink" href="./"
+            title="Share this snippet as link"><strong>permalink</strong></a>
+        </div>
+        <textarea id="source" class="source full-height"></textarea>
+      </div>
+      <div class="split-two">
+        <div class="demo-control">
+          <a href="#" data-result-as="html">html</a>
+          <a href="#" data-result-as="src">source</a>
+          <a href="#" data-result-as="debug">debug</a>
+        </div>
+        <div class="result-html full-height"></div>
+        <pre class="result-src full-height"><code class="result-src-content full-height"></code></pre>
+        <pre class="result-debug full-height"><code class="result-debug-content full-height"></code></pre>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        url: "./assets/placeholder.txt",
+        dataType: "text",
+        success: function (data) {
+          $("#source").text(data);
+        },
+      });
+    });
+
+    Split(['.split-one', '.split-two'], {
+      gutterSize: 20,
+      sizes: [50, 50],
+      minSize: 300
+    })
+  </script>
 </body>
+
 </html>

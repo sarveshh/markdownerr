@@ -16,9 +16,6 @@ body,
 .demo-options {
   margin-bottom: 10px;
 }
-.opt__strict .not-strict {
-  opacity: 0.3;
-}
 .checkbox {
   margin-right: 10px;
 }
@@ -72,48 +69,6 @@ body {
 .result-as-debug .result-src {
   display: none;
 }
-.demo-control {
-  position: absolute;
-  right: 40px;
-  top: 0;
-  border-radius: 0 0 6px 6px;
-  font-size: 12px;
-  background-color: #666;
-  color: #fff !important;
-  opacity: 0.6;
-  -webkit-transition: opacity 0.5s ease-in-out;
-          transition: opacity 0.5s ease-in-out;
-}
-.demo-control:hover {
-  opacity: 1;
-}
-.demo-control a {
-  padding: 0 20px;
-  color: #fff !important;
-}
-.demo-control a:first-child {
-  padding-left: 30px;
-}
-.demo-control a:last-child {
-  padding-right: 30px;
-}
-.form-inline .radio,
-.form-inline .checkbox {
-  display: inline-block;
-  margin-bottom: 0;
-  /* margin-top: 0; */
-}
-.form-inline .form-group {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: middle;
-}
-.form-inline .form-control {
-  display: inline-block;
-  vertical-align: middle;
-  width: auto;
-}
-
 
 :root {
   --nav-bg: #282828;

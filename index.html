@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <title>Markdowner</title>
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,23 +11,25 @@
   <meta name="geo.position" content="19.0760°N, 72.8777°E" />
   <meta name="geo.placename" content="Mumbai, Maharashtra" />
   <meta name="geo.region" content="India" />
-
   <meta name="keywords" content="Markdowner, Markdown" />
   <meta name="author" content="Sarvesh Patil" />
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/lodash/2.4.1/lodash.js"></script>
+  <script src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.css" />
+  <script src="https://cdn.jsdelivr.net/highlight.js/8.4.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4.0/styles/solarized_light.min.css" />
   <link rel="icon" href="./assets/logo.svg" />
-  <link rel="stylesheet" href="./css/styles.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
-    integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/highlight.js/8.4.0/highlight.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4.0/styles/solarized_light.min.css" />
-  <title>Markdowner</title>
+  <script src="./js/remarkable.js"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="./js/index.js"></script>
+
+
+
 </head>
 
 <body>
@@ -103,6 +106,7 @@
           $("#source").text(data);
         },
       });
+      // $('.source').focus();
     });
 
     Split(['.split-one', '.split-two'], {

@@ -27,15 +27,13 @@
   <script src="./js/remarkable.js"></script>
   <link rel="stylesheet" href="./css/styles.css" />
   <script src="./js/index.js"></script>
-
-
-
 </head>
 
 <body>
   <header>
     <div class="logo_intro">
       <img src="./assets/logo.svg" alt="Markdowner logo" class="logo" />
+      &nbsp;
       <span class="logo_name">Markdownerr</span>
     </div>
     <nav>
@@ -45,57 +43,129 @@
         <li><a href="#">Services</a></li>
       </ul>
     </nav>
-    <a href="#" class="cta">
-      <button>Contact</button>
-    </a>
+    <div>
+      <a href="">add nm</a>
+      <a href="#" class="cta">
+        <svg width="35px" viewBox="0 0 1024 1024" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+            transform="scale(64)" fill="#fff" />
+        </svg>
+      </a>
+    </div>
   </header>
 
-  <main>
-    <div class="container">
-      <div class="form-inline demo-options">
-        <div class="checkbox not-strict">
-          <label title="enable html tags in source text" class="_tip">
-            <input id="html" type="checkbox" /> html
-          </label>
-        </div>
-        <div class="checkbox not-strict">
-          <label title="newlines in paragraphs are rendered as &lt;br&gt;" class="_tip">
-            <input id="breaks" type="checkbox" /> breaks
-          </label>
-        </div>
-        <div class="checkbox not-strict">
-          <label title="do typographyc replacements, (c) -&gt; © and so on" class="_tip">
-            <input id="typographer" type="checkbox" /> typographer
-          </label>
-        </div>
-        <div class="checkbox not-strict">
-          <label title="enable output highlight for fenced blocks" class="_tip">
-            <input id="_highlight" type="checkbox" /> highlight
-          </label>
+  <!-- <div class="container options">
+    <div class="form-inline demo-options">
+      <div class="checkbox not-strict">
+        <label title="enable html tags in source text" class="_tip">
+          <input id="html" type="checkbox" /> html
+        </label>
+      </div>
+      <div class="checkbox not-strict">
+        <label title="newlines in paragraphs are rendered as &lt;br&gt;" class="_tip">
+          <input id="breaks" type="checkbox" /> breaks
+        </label>
+      </div>
+      <div class="checkbox not-strict">
+        <label title="do typographyc replacements, (c) -&gt; © and so on" class="_tip">
+          <input id="typographer" type="checkbox" /> typographer
+        </label>
+      </div>
+      <div class="checkbox not-strict">
+        <label title="enable output highlight for fenced blocks" class="_tip">
+          <input id="_highlight" type="checkbox" /> highlight
+        </label>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container full-height content">
+
+    <div class="row split-one" id="one">
+      <div class="demo-control accent-bar">
+        <h4>Markdown</h4>
+        <div>
+          <button id="download" class="download">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
+              <polyline points="7 11 12 16 17 11"></polyline>
+              <line x1="12" y1="4" x2="12" y2="16"></line>
+            </svg>
+          </button>
+          <button id="copy" class="copy">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </button>
+          <a href="#" class="source-clear">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+            </svg>
+          </a>
+          <a id="permalink" href="./" title="Share this snippet as link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-share" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="18" cy="18" r="3"></circle>
+              <line x1="8.7" y1="10.7" x2="15.3" y2="7.3"></line>
+              <line x1="8.7" y1="13.3" x2="15.3" y2="16.7"></line>
+            </svg>
+          </a>
         </div>
       </div>
+      <textarea id="source" class="source full-height"></textarea>
     </div>
 
-    <div class="container full-height content">
-      <div class="row split-one">
+    <div class="split-two" id="two">
+      <div class="accent-bar">
+        <h4>Preview</h4>
         <div class="demo-control">
-          <a href="#" class="source-clear">clear</a><a id="permalink" href="./"
-            title="Share this snippet as link"><strong>permalink</strong></a>
-        </div>
-        <textarea id="source" class="source full-height"></textarea>
-      </div>
-      <div class="split-two">
-        <div class="demo-control">
-          <a href="#" data-result-as="html">html</a>
-          <a href="#" data-result-as="src">source</a>
+          <a href="#" data-result-as="html">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-html5" width="24"
+              height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z"></path>
+              <path d="M15.5 8h-7l.5 4h6l-.5 3.5l-2.5 .75l-2.5 -.75l-.1 -.5"></path>
+            </svg>
+          </a>
+          <a href="#" data-result-as="src">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <polyline points="7 8 3 12 7 16"></polyline>
+              <polyline points="17 8 21 12 17 16"></polyline>
+              <line x1="14" y1="4" x2="10" y2="20"></line>
+            </svg>
+          </a>
           <a href="#" data-result-as="debug">debug</a>
         </div>
-        <div class="result-html full-height"></div>
-        <pre class="result-src full-height"><code class="result-src-content full-height"></code></pre>
-        <pre class="result-debug full-height"><code class="result-debug-content full-height"></code></pre>
       </div>
+      <div class="result-html full-height"></div>
+      <pre class="result-src full-height"><code class="result-src-content full-height"></code></pre>
+      <pre class="result-debug full-height"><code class="result-debug-content full-height"></code></pre>
     </div>
-  </main>
+  </div>
+
 
   <script>
     $(document).ready(function () {
@@ -106,14 +176,10 @@
           $("#source").text(data);
         },
       });
-      // $('.source').focus();
+      $('.source').focus();
     });
 
-    Split(['.split-one', '.split-two'], {
-      gutterSize: 20,
-      sizes: [50, 50],
-      minSize: 300
-    })
+    Split(['#one', '#two'])
   </script>
 </body>
 

@@ -46,7 +46,6 @@
     function setResultView(val) {
         $('body').removeClass('result-as-html');
         $('body').removeClass('result-as-src');
-        $('body').removeClass('result-as-debug');
         $('body').addClass('result-as-' + val);
         defaults._view = val;
     }
@@ -106,13 +105,6 @@
         // (debug & src view with highlighting are a bit slow)
         if (defaults._view === 'src') {
             setHighlightedlContent('.result-src-content', mdSrc.render(source), 'html');
-
-        } else if (defaults._view === 'debug') {
-            setHighlightedlContent(
-                '.result-debug-content',
-                JSON.stringify(mdSrc.parse(source, { references: {} }), null, 2),
-                'json'
-            );
 
         } else { /*defaults._view === 'html'*/
             $('.result-html').html(mdHtml.render(source));
@@ -272,7 +264,7 @@
                 });
 
                 // sanitize for sure
-                if (['html', 'src', 'debug'].indexOf(defaults._view) === -1) {
+                if (['html', 'src'].indexOf(defaults._view) === -1) {
                     defaults._view = 'html';
                 }
             } catch (__) { }

@@ -86,8 +86,7 @@
       <div class="accent-bar">
         <h4>Markdown</h4>
         <div class="demo-control">
-          <button id="download" class="download utility-button"
-            onclick=onclick="saveAsFile(source.value,'download.txt')">
+          <button id="download" class="download utility-button" onclick="saveAsFile(source.value,'markdown.txt')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -158,7 +157,7 @@
               <line x1="14" y1="4" x2="10" y2="20"></line>
             </svg>
           </a>
-          <button id="download-html" class="download-html utility-button">
+          <button id="download-html" class="download-html utility-button" onclick="downloadHtml()">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -181,9 +180,8 @@
           </button>
         </div>
       </div>
-      <div class="result-html full-height"></div>
+      <div class="result-html full-height" id="results"></div>
       <pre class="result-src full-height"><code class="result-src-content full-height"></code></pre>
-      <pre class="result-debug full-height"><code class="result-debug-content full-height"></code></pre>
     </div>
   </div>
 
@@ -206,6 +204,14 @@
       }
 
       downloadLink.click();
+    }
+    function downloadHtml() {
+      var a = document.body.appendChild(
+        document.createElement("a")
+      );
+      a.download = "newfile.html";
+      a.href = "data:text/html," + document.getElementById("results").innerHTML;
+      a.click();
     }
 
 

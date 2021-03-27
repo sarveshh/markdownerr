@@ -4,18 +4,17 @@
     var mdHtml, mdSrc, permalink, scrollMap;
 
     var defaults = {
-        html: false,        // Enable HTML tags in source
-        xhtmlOut: false,        // Use '/' to close single tags (<br />)
-        breaks: false,        // Convert '\n' in paragraphs into <br>
-        langPrefix: 'language-',  // CSS language prefix for fenced blocks
-        linkify: true,         // autoconvert URL-like texts to links
-        linkTarget: '',           // set target to open link in
-        typographer: true,         // Enable smartypants and other sweet transforms
+        html: false,
+        xhtmlOut: false,
+        breaks: false,
+        langPrefix: 'language-',
+        linkify: true,
+        linkTarget: '',
+        typographer: true,
 
-        // options below are for demo only
         _highlight: true,
         _strict: false,
-        _view: 'html'               // html / src / debug
+        _view: 'html'
     };
 
     defaults.highlight = function (str, lang) {
@@ -58,19 +57,9 @@
             mdHtml = new window.Remarkable('full', defaults);
             mdSrc = new window.Remarkable('full', defaults);
         }
-
-        // Beautify output of parser for html content
         mdHtml.renderer.rules.table_open = function () {
             return '<table class="table table-striped">\n';
         };
-
-        //
-        // Inject line numbers for sync scroll. Notes:
-        //
-        // - We track only headings and paragraphs on first level. That's enougth.
-        // - Footnotes content causes jumps. Level limit filter it automatically.
-        //
-
         mdHtml.renderer.rules.paragraph_open = function (tokens, idx) {
             var line;
             if (tokens[idx].lines && tokens[idx].level === 0) {
@@ -79,7 +68,6 @@
             }
             return '<p>';
         };
-
         mdHtml.renderer.rules.heading_open = function (tokens, idx) {
             var line;
             if (tokens[idx].lines && tokens[idx].level === 0) {
@@ -100,22 +88,16 @@
 
     function updateResult() {
         var source = $('.source').val();
-
-        // Update only active view to avoid slowdowns
-        // (debug & src view with highlighting are a bit slow)
         if (defaults._view === 'src') {
             setHighlightedlContent('.result-src-content', mdSrc.render(source), 'html');
 
-        } else { /*defaults._view === 'html'*/
+        } else {
             $('.result-html').html(mdHtml.render(source));
         }
-
-        // reset lines mapping cache on content update
         scrollMap = null;
 
         try {
             if (source) {
-                // serialize state - source and options
                 permalink.href = '#md64=' + window.btoa(encodeURI(JSON.stringify({
                     source: source,
                     defaults: _.omit(defaults, 'highlight')
@@ -128,9 +110,6 @@
         }
     }
 
-    // Build offsets for each line (lines can be wrapped)
-    // That's a bit dirty to process each line everytime, but ok for demo.
-    // Optimizations are required only for big texts.
     function buildScrollMap() {
         var i, offset, nonEmptyList, pos, a, b, lineHeightMap, linesCount,
             acc, sourceLikeDiv, textarea = $('.source'),
@@ -155,7 +134,6 @@
         acc = 0;
         textarea.val().split('\n').forEach(function (str) {
             var h, lh;
-
             lineHeightMap.push(acc);
 
             if (str.length === 0) {
@@ -171,9 +149,7 @@
         sourceLikeDiv.remove();
         lineHeightMap.push(acc);
         linesCount = acc;
-
         for (i = 0; i < linesCount; i++) { _scrollMap.push(-1); }
-
         nonEmptyList.push(0);
         _scrollMap[0] = 0;
 
@@ -184,10 +160,8 @@
             if (t !== 0) { nonEmptyList.push(t); }
             _scrollMap[t] = Math.round($el.offset().top + offset);
         });
-
         nonEmptyList.push(linesCount);
         _scrollMap[linesCount] = $('.result-html')[0].scrollHeight;
-
         pos = 0;
         for (i = 1; i < linesCount; i++) {
             if (_scrollMap[i] !== -1) {
@@ -216,18 +190,13 @@
         }, 100, 'linear');
     }
 
-    //////////////////////////////////////////////////////////////////////////////
-    // Init on page load
-    //
     $(function () {
-        // highlight snippet
         if (window.hljs) {
             $('pre.code-example code').each(function (i, block) {
                 window.hljs.highlightBlock(block);
             });
         }
 
-        // Restore content if opened by permalink
         if (location.hash && /^(#md=|#md64=)/.test(location.hash)) {
             try {
                 var cfg;
@@ -235,8 +204,6 @@
                 if (/^#md64=/.test(location.hash)) {
                     cfg = JSON.parse(decodeURI(window.atob(location.hash.slice(6))));
                 } else {
-                    // Legacy mode for old links. Those become broken in github posts,
-                    // so we switched to base64 encoding.
                     cfg = JSON.parse(decodeURIComponent(location.hash.slice(4)));
                 }
 
@@ -246,12 +213,9 @@
 
                 var opts = _.isObject(cfg.defaults) ? cfg.defaults : {};
 
-                // copy config to defaults, but only if key exists
-                // and value has the same type
                 _.forOwn(opts, function (val, key) {
                     if (!_.has(defaults, key)) { return; }
 
-                    // Legacy, for old links
                     if (key === '_src') {
                         defaults._view = val ? 'src' : 'html';
                         return;
@@ -263,17 +227,14 @@
                     }
                 });
 
-                // sanitize for sure
                 if (['html', 'src'].indexOf(defaults._view) === -1) {
                     defaults._view = 'html';
                 }
             } catch (__) { }
         }
 
-        // Activate tooltips
         $('._tip').tooltip({ container: 'body' });
 
-        // Set default option values and option listeners
         _.forOwn(defaults, function (val, key) {
             if (key === 'highlight') { return; }
 
@@ -309,7 +270,6 @@
         mdInit();
         permalink = document.getElementById('permalink');
 
-        // Setup listeners
         $('.source').on('keyup paste cut mouseup', _.debounce(updateResult, 300, { maxWait: 500 }));
         $('.source').on('scroll', _.debounce(syncScroll, 50, { maxWait: 50 }));
 
@@ -323,13 +283,11 @@
             var view = $(this).data('resultAs');
             if (view) {
                 setResultView(view);
-                // only to update permalink
                 updateResult();
                 event.preventDefault();
             }
         });
 
-        // Need to recalculate line positions on window resize
         $(window).on('resize', function () {
             scrollMap = null;
         });

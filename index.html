@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.css" />
   <script src="https://cdn.jsdelivr.net/highlight.js/8.4.0/highlight.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4.0/styles/solarized_light.min.css" />
-  <link rel="icon" href="./assets/logo1.png" />
+  <link rel="icon" href="./assets/logo.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
@@ -44,7 +44,14 @@
       </ul>
     </nav>
     <div>
-      <a href="">add nm</a>
+      <button title="Toggle Dark Mode" class="dark-mode-toggle" onclick="toggleTheme(this)">
+        <span class="sun">
+          <img width="35px" src="./assets/sun.svg" style="color: white;" />
+        </span>
+        <span class="moon">
+          <img width="25px" src="./assets/moon.svg" />
+        </span>
+      </button>
       <a href="#" class="cta">
         <svg width="35px" viewBox="0 0 1024 1024" fill="#fff" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -255,6 +262,37 @@
 
 
     Split(['#one', '#two'])
+
+    function toggleTheme(toggleButton) {
+      if (document.body.classList.contains("dark")) {
+        document.body.classList.add("fade-in-light");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("fade-in-dark");
+        window.localStorage.setItem("prefers-theme", "light");
+        if (toggleButton) {
+          toggleButton.setAttribute("aria-pressed", false);
+          toggleButton.setAttribute("aria-label", "Activate Dark Mode");
+        }
+      } else {
+        document.body.classList.add("fade-in-dark");
+        document.body.classList.add("dark");
+        document.body.classList.remove("fade-in-light");
+        window.localStorage.setItem("prefers-theme", "dark");
+        if (toggleButton) {
+          toggleButton.setAttribute("aria-pressed", true);
+          toggleButton.setAttribute("aria-label", "Activate Light Mode");
+        }
+      }
+    }
+
+    const localPreference = window.localStorage.getItem("prefers-theme");
+    if (localPreference) {
+      if (localPreference === "light") document.body.classList.remove("dark");
+      else document.body.classList.add("dark");
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark");
+    }
+
   </script>
 </body>
 

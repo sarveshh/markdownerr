@@ -7,8 +7,46 @@ body {
   overflow-x: hidden;
   height: 100vh;
   width: 100vw  ;
+
+  --nav-bg: silver;
+  --nav-text: black;
+  --accent-color: #c9d1d8;
+  --accent-text-color : #03080e;
+  --body-color: #e0e0ee;
+  --dark-mode-text : #0b0f13;
 }
-:root {
+.fade-in-dark,
+.fade-in-light {
+  transition: 0.3s ease;
+}
+.dark-mode-toggle {
+  cursor: pointer;
+  vertical-align: top;
+  border: none;
+  background: transparent;
+}
+body:not(.user-is-tabbing) .dark-mode-toggle:focus {
+  outline: none;
+}
+.dark-mode-toggle .moon {
+  padding: 10px;
+}
+.dark-mode-toggle .sun {
+  padding: 5px;
+}
+body .dark-mode-toggle .moon {
+  display: none;
+}
+body .dark-mode-toggle .sun {
+  display: inline-block;
+}
+body.dark .dark-mode-toggle .moon {
+  display: inline-block;
+}
+body.dark .dark-mode-toggle .sun {
+  display: none;
+}
+body.dark{
   --nav-bg: #282828;
   --nav-text: white;
   --accent-color: #3F4448;
@@ -16,6 +54,9 @@ body {
   --body-color: #1a1a1d;
   --dark-mode-text : silver
 }
+/* body.dark nav {
+  filter: invert(100%);
+} */
 h4{
   margin-top: 0px !important;
 }

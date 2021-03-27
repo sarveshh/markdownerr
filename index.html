@@ -117,7 +117,7 @@
               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
             </svg>
           </a>
-          <a id="permalink" href="./" title="Share this snippet as link" class="utility-button">
+          <a id="permalink" href="./" title="Share this snippet as link" class="utility-button share">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-share" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -138,7 +138,7 @@
       <div class="accent-bar">
         <h4>Preview</h4>
         <div class="demo-control">
-          <a href="#" data-result-as="html" class="utility-button">
+          <a href="#" data-result-as="html" class="utility-button show-html">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-html5" width="24"
               height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -147,7 +147,7 @@
               <path d="M15.5 8h-7l.5 4h6l-.5 3.5l-2.5 .75l-2.5 -.75l-.1 -.5"></path>
             </svg>
           </a>
-          <a href="#" data-result-as="src" class="utility-button">
+          <a href="#" data-result-as="src" class="utility-button show-src">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -222,7 +222,7 @@
         document.selection.empty();
       }
     };
-
+    $('.source').focus()
     $(document).ready(function () {
       $.ajax({
         url: "./assets/placeholder.txt",
@@ -231,7 +231,16 @@
           $("#source").text(data);
         },
       });
-      $('.source').focus();
+
+      $('#download').tooltip({ title: "Download Markdown", animation: true, delay: 300, placement: "bottom" });
+      $('.copy').tooltip({ title: "Copy", animation: true, delay: 300, placement: "bottom" });
+      $('.source-clear').tooltip({ title: "Clear Editor", animation: true, delay: 300, placement: "bottom" });
+      $('.share').tooltip({ title: "Share as link", animation: true, delay: 300, placement: "bottom" });
+      $('.show-html').tooltip({ title: "Show HTML", animation: true, delay: 300, placement: "bottom" });
+      $('.show-src').tooltip({ title: "Show source", animation: true, delay: 300, placement: "bottom" });
+      $('.download-html').tooltip({ title: "Download HTML", animation: true, delay: 300, placement: "bottom" });
+      $('.full-screen').tooltip({ title: "Full Screen", animation: true, delay: 300, placement: "bottom" });
+
     });
 
     $('.full-screen').click(function (e) {

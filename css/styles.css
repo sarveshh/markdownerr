@@ -12,7 +12,9 @@ body {
   --nav-bg: #282828;
   --nav-text: white;
   --accent-color: #3F4448;
-  --accent-text-color : #CFD0D1
+  --accent-text-color : #CFD0D1;
+  --body-color: #1a1a1d;
+  --dark-mode-text : silver
 }
 h4{
   margin-top: 0px !important;
@@ -41,9 +43,11 @@ html,
 .source {
   width: 100%;
   font-size: 13px;
+  color: var(--dark-mode-text);
   resize: none;
   margin: inherit;
-  padding: 18px 10px 0px 25px
+  padding: 18px 10px 0px 25px;
+  background: var(--body-color);
 }
 body {
   overflow-x: hidden;
@@ -60,9 +64,10 @@ body {
   left: 0; 
 }
 .result-html {
-  padding: 2px 10px;
+  padding: 5px 10px 0px 10px;
   overflow: auto;
-  background-color: #fff;
+  background-color: var(--body-color);
+  color: var(--dark-mode-text);
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: 1s;

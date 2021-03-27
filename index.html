@@ -96,7 +96,7 @@
               <line x1="12" y1="4" x2="12" y2="16"></line>
             </svg>
           </button>
-          <button id="copy" class="copy utility-button">
+          <button class="copy utility-button" onclick="copyToClipBoard()">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -186,7 +186,7 @@
   </div>
 
 
-  <script>
+  <script type="text/javascript">
 
     function saveAsFile(textToWrite, fileNameToSaveAs) {
       var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
@@ -213,7 +213,15 @@
       a.href = "data:text/html," + document.getElementById("results").innerHTML;
       a.click();
     }
-
+    function copyToClipBoard() {
+      document.getElementById('source').select();
+      document.execCommand("copy");
+      if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+      } else if (document.selection) {
+        document.selection.empty();
+      }
+    };
 
     $(document).ready(function () {
       $.ajax({
@@ -225,6 +233,17 @@
       });
       $('.source').focus();
     });
+
+    $('.full-screen').click(function (e) {
+      $('#results').toggleClass('fullscreen');
+      $('#results').click(function (e) {
+        $('#results').toggleClass('fullscreen');
+      })
+      setTimeout(function () {
+        $('#results').toggleClass('fullscreen');
+      }, 10000)
+    });
+
 
     Split(['#one', '#two'])
   </script>

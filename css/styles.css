@@ -83,8 +83,8 @@ html,
 }
 .source {
   width: 100%;
-  font-size: 13px;
   color: var(--dark-mode-text);
+  font-family: 'Source Code Pro', monospace;
   resize: none;
   margin: inherit;
   padding: 18px 10px 0px 25px;
@@ -105,7 +105,7 @@ body {
   left: 0; 
 }
 .result-html {
-  padding: 5px 10px 0px 10px;
+  padding: 5px 10px 0px 25px;
   overflow: auto;
   background-color: var(--body-color);
   color: var(--dark-mode-text);
@@ -149,7 +149,7 @@ body {
 }
 
 header {
-  font-family: "Carter One", cursive;
+  font-family: 'Roboto Slab', serif;
   display: flex;
   justify-content: space-between;
   align-items: center;

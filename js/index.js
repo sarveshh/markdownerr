@@ -86,6 +86,39 @@
         }
     }
 
+
+    $.ajax({
+        url: "./assets/placeholder.txt",
+        dataType: "text",
+        success: function (data) {
+            // document.getElementById("source").innerHTML = data;
+            if (localStorage.getItem("markdown")) {
+                $('.source').text(localStorage.getItem("markdown"))
+            } else {
+                $('.source').text(data)
+            }
+            updateResult()
+        },
+    });
+    setTimeout(() => {
+        $('#source').focus();
+        $('#source').click();
+    }, 2000);
+    setInterval(() => {
+        localStorage.setItem("markdown", $('#source').val())
+    }, 2000);
+
+    $(document).ready(function () {
+        $('#download').tooltip({ title: "Download Markdown", animation: true, delay: 300, placement: "bottom" });
+        $('.copy').tooltip({ title: "Copy", animation: true, delay: 300, placement: "bottom" });
+        $('.source-clear').tooltip({ title: "Clear Editor", animation: true, delay: 300, placement: "bottom" });
+        $('.share').tooltip({ title: "Share as link", animation: true, delay: 300, placement: "bottom" });
+        $('.show-html').tooltip({ title: "Show HTML", animation: true, delay: 300, placement: "bottom" });
+        $('.show-src').tooltip({ title: "Show source", animation: true, delay: 300, placement: "bottom" });
+        $('.download-html').tooltip({ title: "Download HTML", animation: true, delay: 300, placement: "bottom" });
+        $('.full-screen').tooltip({ title: "Full Screen", animation: true, delay: 300, placement: "bottom" });
+    });
+
     function updateResult() {
         var source = $('.source').val();
         if (defaults._view === 'src') {

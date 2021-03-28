@@ -14,7 +14,8 @@
   <meta name="keywords" content="Markdowner, Markdown" />
   <meta name="author" content="Sarvesh Patil" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/lodash/2.4.1/lodash.js"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.css" />
@@ -171,7 +172,8 @@
   </div>
 
 
-  <script type="text/javascript">
+  <script type="text/javascript" async>
+
 
     function saveAsFile(textToWrite, fileNameToSaveAs) {
       var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
@@ -207,26 +209,6 @@
         document.selection.empty();
       }
     };
-    $('.source').focus()
-    $(document).ready(function () {
-      $.ajax({
-        url: "./assets/placeholder.txt",
-        dataType: "text",
-        success: function (data) {
-          $("#source").text(data);
-        },
-      });
-
-      $('#download').tooltip({ title: "Download Markdown", animation: true, delay: 300, placement: "bottom" });
-      $('.copy').tooltip({ title: "Copy", animation: true, delay: 300, placement: "bottom" });
-      $('.source-clear').tooltip({ title: "Clear Editor", animation: true, delay: 300, placement: "bottom" });
-      $('.share').tooltip({ title: "Share as link", animation: true, delay: 300, placement: "bottom" });
-      $('.show-html').tooltip({ title: "Show HTML", animation: true, delay: 300, placement: "bottom" });
-      $('.show-src').tooltip({ title: "Show source", animation: true, delay: 300, placement: "bottom" });
-      $('.download-html').tooltip({ title: "Download HTML", animation: true, delay: 300, placement: "bottom" });
-      $('.full-screen').tooltip({ title: "Full Screen", animation: true, delay: 300, placement: "bottom" });
-
-    });
 
     $('.full-screen').click(function (e) {
       $('#results').toggleClass('fullscreen');
@@ -237,7 +219,6 @@
         $('#results').toggleClass('fullscreen');
       }, 10000)
     });
-
 
     Split(['#one', '#two'])
 

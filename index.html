@@ -42,9 +42,34 @@
     </div>
 
     <ul class="mainMenu">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Cheatsheet</a></li>
-      <li><a href="#">Template</a></li>
+      <li>
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <p>About content goes here</p>
+          </div>
+        </div>
+        <a onclick="openNav()" class="nav-anchors">About</a>
+      </li>
+
+      <li>
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <p>About content goes here</p>
+          </div>
+        </div>
+        <a onclick="openNav()" class="nav-anchors">Cheatsheet</a>
+      </li>
+      <li>
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <p>About content goes here</p>
+          </div>
+        </div>
+        <a onclick="openNav()" class="nav-anchors">Templates</a>
+      </li>
       <div class="closeMenu">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="34" height="34"
           viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -296,6 +321,13 @@
     }
     function close() {
       mainMenu.style.top = '-100%'
+    }
+    function openNav() {
+      document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.height = "0%";
     }
   </script>
 </body>

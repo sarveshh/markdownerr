@@ -179,7 +179,7 @@ nav .mainMenu li a:hover{
 }
 nav .openMenu{
   font-size: 2rem;
-  margin: 20px;
+  margin: 10px;
   display: none;
   cursor: pointer;
 }
@@ -295,7 +295,10 @@ nav a {
       width: 103vw;
   }
 }
-
+.util{
+  display: flex;
+  align-items: center;
+}
 .utility-button {
   margin-left: 2px;
   margin-right: 2px;

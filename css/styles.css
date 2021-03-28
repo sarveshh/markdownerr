@@ -162,6 +162,7 @@ nav{
   display: flex;
   justify-content: space-between;
   padding: 6px 2%;
+  min-width: 100vw;
 }
 nav .mainMenu{
   display: flex;

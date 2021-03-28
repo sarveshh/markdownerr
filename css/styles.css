@@ -238,6 +238,42 @@ nav .logo {
     display: inline-block;
     padding: 12px;
   }
+  .content{
+      width: 100vh;
+      height: 100vh;
+      flex-direction: column;
+  }
+  .split-one, .split-two{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .gutter {
+    width: 100% !important;
+    background: #444857;
+    cursor: ew-resize;
+    max-height: 15px !important;  
+    min-height: 10px !important;
+  }
+  .container{
+    padding-left: 0px !important;
+  }
+  .source{
+    padding-left: 40px;
+  }
+  .split-one, .split-two{
+    min-height: calc((98vh - 73px)/2) !important;
+  }
+  body{
+    max-height: 100vh !important;
+    background-color: #24292e;
+  }
+  html{
+    max-height: 100vh !important;
+    overflow: -moz-hidden-unscrollable im !important;
+    overflow: hidden !important;
+  }
 } 
 nav a {
   text-decoration: none;

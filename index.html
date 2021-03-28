@@ -242,7 +242,16 @@
       }, 10000)
     });
 
-    Split(['#one', '#two'])
+    if (window.matchMedia('(max-width: 800px)').matches) {
+      Split(['#one', '#two'], {
+        direction: 'vertical',
+      })
+    } else {
+      Split(['#one', '#two'])
+    }
+
+
+
 
     function toggleTheme(toggleButton) {
       if (document.body.classList.contains("dark")) {

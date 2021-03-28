@@ -172,7 +172,7 @@ nav .mainMenu li a{
   padding: 15px;
   text-decoration: none;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 nav .mainMenu li a:hover{
   background: rgb(255,94,0);
@@ -192,6 +192,10 @@ nav .logo {
   margin: 6px;
   cursor: pointer;
 }
+.hamburger-logo{
+  display: none;
+}
+
 @media (max-width: 800px){
   nav .mainMenu{
     height: 100vh;
@@ -203,15 +207,24 @@ nav .logo {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: black;
+    background: #24292e;
     transition: top 1s ease;
     display: none;
+  }
+  nav .mainMenu li a{
+    font-size: 2.5rem
+  }
+  .hamburger-logo{
+    top: 20px;
+    left: 40px;
+    display: block;
+    position: absolute
   }
   nav .mainMenu .closeMenu{
     display: block;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 40px;
   }
   nav .openMenu{
     display: block;

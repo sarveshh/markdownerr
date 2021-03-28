@@ -156,6 +156,76 @@ header {
   padding: 6px 2%;
   background-color: #24292e;
 }
+nav{
+  background: #24292e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 2%;
+}
+nav .mainMenu{
+  display: flex;
+  list-style: none;
+}
+nav .mainMenu li a{
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+nav .mainMenu li a:hover{
+  background: rgb(255,94,0);
+}
+nav .openMenu{
+  font-size: 2rem;
+  margin: 20px;
+  display: none;
+  cursor: pointer;
+}
+nav .mainMenu .closeMenu, .icons{
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
+}
+nav .logo {
+  margin: 6px;
+  cursor: pointer;
+}
+@media (max-width: 800px){
+  nav .mainMenu{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    transition: top 1s ease;
+    display: none;
+  }
+  nav .mainMenu .closeMenu{
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  nav .openMenu{
+    display: block;
+  }
+  nav .mainMenu li a:hover{
+    background: none;
+    color: rgb(255,123,0);
+    font-size: 1.6rem;
+  }
+  .icons{
+    display: inline-block;
+    padding: 12px;
+  }
+} 
 nav a {
   text-decoration: none;
   color: var(--nav-text);
@@ -193,7 +263,7 @@ nav a {
   justify-items: center;
   align-items: end;
   height: 80%;
-  min-width: 80vw;
+  min-width: 104vw;
 }
 .gutter {
   height: 100%;
@@ -225,6 +295,7 @@ nav a {
       width: 103vw;
   }
 }
+
 .utility-button {
   margin-left: 2px;
   margin-right: 2px;

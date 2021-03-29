@@ -249,7 +249,7 @@ nav .logo {
       flex-direction: column;
   }
   .split-one, .split-two{
-    width: 100% !important;
+    width: 102% !important;
     display: flex;
     flex-direction: column;
     position: relative;

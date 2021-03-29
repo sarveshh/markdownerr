@@ -123,7 +123,8 @@ body {
 .result-src,
 .result-debug {
   display: none;
-  background-color: #fff;
+  background-color: var(--body-color);
+  color: var(--dark-mode-text);
 }
 .result-src-content,
 .result-debug-content {

@@ -54,7 +54,7 @@
         <a onclick="openNav()" class="nav-anchors">About</a>
       </li>
       <li>
-        <a href="javascript:void(0)">Demo</a>
+        <a href="javascript:void(0)" id="demo">Demo</a>
       </li>
       <li>
         <div id="myNav" class="overlay">
@@ -331,61 +331,67 @@
       document.getElementById("myNav").style.height = "0%";
     }
 
-    introJs().setOptions({
-      steps: [
-        {
-          element: '#introduction',
-          intro: "Hi, Welcome to markdownerr"
-        },
-        {
-          element: '#source',
-          intro: 'This is where you write all markdown. Rest Easy, you\'ll get the live preview'
-        },
-        {
-          element: '#results',
-          intro: 'This is where you\'ll see the live preview'
-        },
-        {
-          element: '#theme',
-          intro: 'Toggle Night mode'
-        },
-        {
-          element: '#copy',
-          intro: 'Copy markdown to clipboard'
-        },
-        {
-          element: '#clear',
-          intro: 'Clear markdown Editor'
-        },
-        {
-          element: '#download',
-          intro: 'Download Markdown file'
-        },
-        {
-          element: '#permalink',
-          intro: 'Share as link'
-        },
-        {
-          element: '#show-as-html',
-          intro: 'Show preview'
-        },
-        {
-          element: '#show-as-src',
-          intro: 'Show preview as source code'
-        },
-        {
-          element: '#download-html',
-          intro: 'Download preview'
-        },
-        {
-          element: '#full-screen',
-          intro: 'Show preview at full screen'
-        },
-      ],
-      showProgress: true,
-      showBullets: false,
-      disableInteraction: false
-    }).start();
+
+    $("#demo").on('click', function (e) {
+      e.preventDefault();
+
+      introJs().setOptions({
+        steps: [
+          {
+            element: '#introduction',
+            intro: "Hi, Welcome to markdownerr"
+          },
+          {
+            element: '#source',
+            intro: 'This is where you write all markdown. Rest Easy, you\'ll get the live preview'
+          },
+          {
+            element: '#results',
+            intro: 'This is where you\'ll see the live preview'
+          },
+          {
+            element: '#theme',
+            intro: 'Switch to Day Mode'
+          },
+          {
+            element: '#copy',
+            intro: 'Copy markdown to clipboard'
+          },
+          {
+            element: '#clear',
+            intro: 'Clear markdown Editor'
+          },
+          {
+            element: '#download',
+            intro: 'Download Markdown file'
+          },
+          {
+            element: '#permalink',
+            intro: 'Share as link'
+          },
+          {
+            element: '#show-as-html',
+            intro: 'Show preview'
+          },
+          {
+            element: '#show-as-src',
+            intro: 'Show preview as source code'
+          },
+          {
+            element: '#download-html',
+            intro: 'Download preview'
+          },
+          {
+            element: '#full-screen',
+            intro: 'Show preview at full screen'
+          },
+        ],
+        showProgress: true,
+        showBullets: false,
+        disableInteraction: false
+      }).start();
+    });
+
     introJs().addHints()
   </script>
 </body>

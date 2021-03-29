@@ -29,13 +29,15 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
   <script src="./js/remarkable.js"></script>
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
   <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
   <script src="./js/index.js"></script>
 </head>
 
 <body>
   <nav>
-    <div class="logo_intro">
+    <div class="logo_intro" id="introduction">
       <img src="./assets/logo1.png" alt="Markdowner logo" class="logo" style="background-color: white;" />
       &nbsp;
       <span class="logo_name">Markdownerr</span>
@@ -51,7 +53,9 @@
         </div>
         <a onclick="openNav()" class="nav-anchors">About</a>
       </li>
-
+      <li>
+        <a href="javascript:void(0)">Demo</a>
+      </li>
       <li>
         <div id="myNav" class="overlay">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -59,7 +63,7 @@
             <p>About content goes here</p>
           </div>
         </div>
-        <a onclick="openNav()" class="nav-anchors">Cheatsheet</a>
+        <a onclick="openNav()" class="nav-anchors">Guide</a>
       </li>
       <li>
         <div id="myNav" class="overlay">
@@ -86,7 +90,7 @@
       </div>
     </ul>
     <div class="util">
-      <button title="Toggle Dark Mode" class="dark-mode-toggle" onclick="toggleTheme(this)">
+      <button title="Toggle Dark Mode" id="theme" class="dark-mode-toggle" onclick="toggleTheme(this)">
         <span class="sun">
           <img width="35px" src="./assets/sun.svg" />
         </span>
@@ -117,19 +121,9 @@
   <div class="container full-height content">
     <div class="row split-one" id="one">
       <div class="accent-bar">
-        <h4>Markdown</h4>
+        <h4 data-hint="Confused? Checkout the Guide section" data-hintPosition="left">Markdown</h4>
         <div class="demo-control">
-          <button id="download" class="download utility-button" onclick="saveAsFile(source.value,'markdown.txt')">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
-              <polyline points="7 11 12 16 17 11"></polyline>
-              <line x1="12" y1="4" x2="12" y2="16"></line>
-            </svg>
-          </button>
-          <button class="copy utility-button" onclick="copyToClipBoard()">
+          <button class="copy utility-button" onclick="copyToClipBoard()" id="copy">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -138,7 +132,7 @@
               <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
             </svg>
           </button>
-          <a href="#" class="source-clear utility-button">
+          <a href="#" class="source-clear utility-button" id="clear">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -150,6 +144,16 @@
               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
             </svg>
           </a>
+          <button id="download" class="download utility-button" onclick="saveAsFile(source.value,'markdown.txt')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
+              <polyline points="7 11 12 16 17 11"></polyline>
+              <line x1="12" y1="4" x2="12" y2="16"></line>
+            </svg>
+          </button>
           <a id="permalink" href="./" title="Share this snippet as link" class="utility-button share">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-share" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -171,7 +175,7 @@
       <div class="accent-bar">
         <h4>Preview</h4>
         <div class="demo-control">
-          <a href="#" data-result-as="html" class="utility-button show-html">
+          <a href="#" id="show-as-html" data-result-as="html" class="utility-button show-html">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-html5" width="24"
               height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -180,7 +184,7 @@
               <path d="M15.5 8h-7l.5 4h6l-.5 3.5l-2.5 .75l-2.5 -.75l-.1 -.5"></path>
             </svg>
           </a>
-          <a href="#" data-result-as="src" class="utility-button show-src">
+          <a href="#" id="show-as-src" data-result-as="src" class="utility-button show-src">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="24" height="24"
               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
               stroke-linejoin="round">
@@ -275,9 +279,6 @@
       Split(['#one', '#two'])
     }
 
-
-
-
     function toggleTheme(toggleButton) {
       if (document.body.classList.contains("dark")) {
         document.body.classList.add("fade-in-light");
@@ -329,6 +330,63 @@
     function closeNav() {
       document.getElementById("myNav").style.height = "0%";
     }
+
+    introJs().setOptions({
+      steps: [
+        {
+          element: '#introduction',
+          intro: "Hi, Welcome to markdownerr"
+        },
+        {
+          element: '#source',
+          intro: 'This is where you write all markdown. Rest Easy, you\'ll get the live preview'
+        },
+        {
+          element: '#results',
+          intro: 'This is where you\'ll see the live preview'
+        },
+        {
+          element: '#theme',
+          intro: 'Toggle Night mode'
+        },
+        {
+          element: '#copy',
+          intro: 'Copy markdown to clipboard'
+        },
+        {
+          element: '#clear',
+          intro: 'Clear markdown Editor'
+        },
+        {
+          element: '#download',
+          intro: 'Download Markdown file'
+        },
+        {
+          element: '#permalink',
+          intro: 'Share as link'
+        },
+        {
+          element: '#show-as-html',
+          intro: 'Show preview'
+        },
+        {
+          element: '#show-as-src',
+          intro: 'Show preview as source code'
+        },
+        {
+          element: '#download-html',
+          intro: 'Download preview'
+        },
+        {
+          element: '#full-screen',
+          intro: 'Show preview at full screen'
+        },
+      ],
+      showProgress: true,
+      showBullets: false,
+      disableInteraction: false
+    }).start();
+    introJs().addHints()
   </script>
 </body>
 

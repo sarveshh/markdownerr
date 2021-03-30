@@ -113,7 +113,7 @@ Duplicated footnote reference[^second].
 
     and multiple paragraphs.
 
-[^second]: #### Fork me on [Github](http://www.github.com/sarveshh/markdownerr)
+[^second]: Fork me on [Github](http://www.github.com/sarveshh/markdownerr)
 ***
 # Definition lists
 

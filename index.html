@@ -26,7 +26,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Code+Pro:wght@500&display=swap"
     rel="stylesheet">
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
   <script src="./js/remarkable.js"></script>
   <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
@@ -51,19 +50,326 @@
         <div id="myNav" class="overlay">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <div class="overlay-content">
-            <p>About content goes here</p>
+            <h2>Markdown Elements</h2>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Elements.."
+              title="Type in a name of element">
+
+            <table id="myTable">
+              <tr class="header">
+                <th style="width:20%;">Element Name</th>
+                <th style="width:40%;">Markdown form</th>
+                <th style="width:40%;">Output</th>
+              </tr>
+              <tr>
+                <td>Heading 1</td>
+                <td># Heading 1</td>
+                <td>
+                  <h1>Heading 1</h1>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading 2</td>
+                <td># Heading 2</td>
+                <td>
+                  <h2>Heading 2</h2>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading 3</td>
+                <td># Heading 3</td>
+                <td>
+                  <h3>Heading 3</h3>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading 4</td>
+                <td># Heading 4</td>
+                <td>
+                  <h4>Heading 4</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading 5</td>
+                <td># Heading 5</td>
+                <td>
+                  <h5>Heading 5</h5>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading 6</td>
+                <td># Heading 6</td>
+                <td>
+                  <h6>Heading 6</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>Thematic Break</td>
+                <td>***</td>
+                <td>
+                  <h6>
+                    <hr>
+                  </h6>
+                </td>
+              </tr>
+              <tr>
+                <td>Typographs</td>
+                <td>(c) (R) (TM) (P) +-</td>
+                <td>
+                  © ® ™ § ±
+                </td>
+              </tr>
+              <tr>
+                <td>Bold</td>
+                <td>**Bold text**</td>
+                <td>
+                  <span style="font-weight: bold;">Bold text</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Italic</td>
+                <td>*Italic text*</td>
+                <td>
+                  <span style="font-style: italic;">Italic text</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Strikethrough</td>
+                <td>~~Deleted Text~~</td>
+                <td>
+                  <span style="text-decoration: line-through;">Bold text</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Superscript</td>
+                <td>19^th^</td>
+                <td>
+                  <span>19<sup>th</sup></span>
+                </td>
+              </tr>
+              <tr>
+                <td>Subscript</td>
+                <td>CO~2~</td>
+                <td>
+                  <span>CO<sub>2</sub></span>
+                </td>
+              </tr>
+              <tr>
+                <td>Underlined Text</td>
+                <td>++Underline++</td>
+                <td>
+                  <span style="text-decoration: underline;">Underline</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Highlighted Text</td>
+                <td>==This is Highlighted==</td>
+                <td>
+                  <span><mark>This is Highlighted</mark></span>
+                </td>
+              </tr>
+              <tr>
+                <td>Unordered Lists</td>
+                <td>
+                  + List is started with `+`, `-`, or `*`<br>
+                  &nbsp;&nbsp;&nbsp;+ Sub-lists are made by indenting 2 spaces:<br>
+                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;- Marker character change forces new list start:<br>
+                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* Ac tristique libero volutpat at<br>
+                </td>
+              </tr>
+              <tr>
+                <td>Ordered Lists</td>
+                <td>
+                  1. Lorem ipsum dolor sit amet<br>
+                  2. Consectetur adipiscing elit<br>
+                  3. Integer molestie lorem at massa<br><br>
+
+                  1. You can use sequential numbers...<br>
+                  1. ...or keep all the numbers as `1.`<br><br>
+
+                  Start numbering with offset:<br>
+                  57. foo<br>
+                  1. bar<br>
+
+                </td>
+                <td>
+                  1. Lorem ipsum dolor sit amet<br>
+                  2. Consectetur adipiscing elit<br>
+                  3. Integer molestie lorem at massa<br><br>
+
+                  1. You can use sequential numbers...<br>
+                  1. ...or keep all the numbers as `1.`<br><br>
+
+                  Start numbering with offset:<br>
+                  57. foo<br>
+                  58. bar<br>
+                </td>
+              </tr>
+              <tr>
+                <td>Inline Code</td>
+                <td>`code`</td>
+                <td>
+                  <span style="color: #c7254e; background-color: #f9f2f4; padding: 2px 4px; font-size: 90%;">
+                    code</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Indented Code</td>
+                <td>
+                  [4 spaces]This is code line one
+                  [4 spaces]This is code line two
+                </td>
+                <td>
+                  <span
+                    style="display: block; padding: 9.5px; font-size: 13px;line-height: 1.4; color: #333; word-break: break-all;word-wrap: break-word;background-color: #f5f5f5;border: 1px solid #ccc;border-radius: 4px;">This
+                    is code line one<br>This is code line two</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Fenced Code</td>
+                <td>
+                  ```<br>
+                  npm install markdownerr<br>
+                  ```
+                </td>
+                <td>
+                  <span
+                    style="display: block; padding: 9.5px; font-size: 13px;line-height: 1.4; color: #333; word-break: break-all;word-wrap: break-word;background-color: #f5f5f5;border: 1px solid #ccc;border-radius: 4px;">
+                    <span style="color: #268bd2">npm install</span> markdownerr</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Code Syntax Highlighting</td>
+                <td>
+                  ```js<br>
+                  var foo = function (bar) {<br>
+                  return bar++;<br>
+                  };<br>
+
+                  console.log(foo(5));<br>
+                  ```
+                </td>
+                <td>
+                  <span
+                    style="display: block; padding: 9.5px; font-size: 13px;line-height: 1.4; color: #333; word-break: break-all;word-wrap: break-word;background-color: #f5f5f5;border: 1px solid #ccc;border-radius: 4px;">
+                    <span style="color: #859900">var</span> foo = <span style="color: #859900">function</span> (bar)
+                    {<br>
+                    <span style="color: #859900">return</span> bar++;<br>
+                    };<br>
+
+                    <span style="color: #268bd2">console</span>.log(foo(5));
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Tables</td>
+                <td>
+                  | Option | Description |<br>
+                  | ------ | ----------- |<br>
+                  | data | path to data files to supply the data that will be passed into templates. |<br>
+                  | engine | engine to be used for processing templates. Handlebars is the default. |<br>
+                  | ext | extension to be used for dest files. |
+                </td>
+                <td>
+                  <span>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Option</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>data</td>
+                          <td>path to data files to supply the data that will be passed into templates.</td>
+                        </tr>
+                        <tr>
+                          <td>engine</td>
+                          <td>engine to be used for processing templates. Handlebars is the default.</td>
+                        </tr>
+                        <tr>
+                          <td>ext</td>
+                          <td>extension to be used for dest files.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Links</td>
+                <td>[link with title](http://nodeca.github.io/pica/demo/ "title text!")</td>
+                <td>
+                  <span>
+                    <a href="http://nodeca.github.io/pica/demo/">link with title</a>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Autoconverted link </td>
+                <td>Autoconverted link https://github.com/</td>
+                <td>
+                  <span>
+                    Autoconverted link <a href="https://github.com/">https://github.com/</a>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Images</td>
+                <td>![Minion](https://octodex.github.com/images/minion.png)</td>
+                <td>
+                  <span>
+                    <img height="75px" src="https://octodex.github.com/images/minion.png" alt="Minion"></span>
+                </td>
+              </tr>
+              <tr>
+                <td>Footnotes</td>
+                <td>Footnote 1 link[^first].<br>
+                  <small>Write code below wherever you want to add footnote content<br></small>
+                  [^first]: Footnote **can have markup** and multiple paragraphs.
+                </td>
+                <td>
+                  <span>
+                    Footnote 1 link<sup><a href="#footnote1">[1]</a></sup>
+                    <br><small>Footnote will scroll automatically and look like this</small><br>
+                    <span>Footnote <b>can have markup</b> and multiple paragraphs.</span>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Definitions</td>
+                <td>Term 1<br>
+                  : Definition 1 with lazy continuation.<br>
+                </td>
+                <td>
+                  <span>
+                    <b>Term 1</b><br>
+                    <p>Definition 1 with lazy continuation</p>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Abbreviations</td>
+                <td>
+                  This is <abbr title="Hyper Text Markup Languages">HTML</abbr> abbreviation example.<br>
+                  It converts "<abbr title="Hyper Text Markup Languages">HTML</abbr>", but keep intact partial <abbr
+                    title="Hyper Text Markup Languages">HTML</abbr> entries like "xxxHTMLyyy" and so on.<br>
+                  *[HTML]: Hyper Text Markup Language
+                </td>
+                <td>
+                  <span>
+                    This is <abbr title="World Health Organization">HTML</abbr> abbreviation example.
+                    It converts "HTML", but keep intact partial HTML entries like “xxxHTMLyyy” and so on.<br>
+                  </span>
+                </td>
+              </tr>
+            </table>
+
           </div>
         </div>
         <a onclick="openNav()" class="nav-anchors">Guide</a>
-      </li>
-      <li>
-        <div id="myNav" class="overlay">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <div class="overlay-content">
-            <p>About content goes here</p>
-          </div>
-        </div>
-        <a onclick="openNav()" class="nav-anchors">Templates</a>
       </li>
       <div class="closeMenu">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="34" height="34"
@@ -388,6 +694,25 @@
     });
 
     introJs().addHints()
+
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
   </script>
 </body>
 

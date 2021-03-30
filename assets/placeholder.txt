@@ -12,11 +12,6 @@ It helps making Github Readme's, writing blogs and whatever website supports mar
 ### Check out Guide to explore all Markdownerr can do.
 ### Click on Demo to check all exciting features markdownerr has to offer.
 
-***
-
-### Project related links
-
-Check this project out on [Github](http://www.github.com/sarveshh/markdownerr)
 
 ***
 *** 
@@ -102,7 +97,6 @@ console.log(foo(5));
 # Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
 ***
 ## Footnotes

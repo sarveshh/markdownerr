@@ -1,137 +1,66 @@
-# Markdownerr
+#  👋
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/sarveshh/markdownerr/main/assets/screenshot.png?token=APIDM4XHVDC2LFLXRI2X7YTANQHGM" alt="Hero image"/>
+<p/>
 
-***
+> Markdownerr is a Markdown parser, previewer and editor.
 
+<h1 align="center">Welcome to Markdownerr✍ </h1>
+<p align="center">
+  For a simple demo of <strong>Markdownerr<strong> :- <br>
+  <a href="https://sarveshh.github.io/markdownerr/">
+    Visit here
+  </a>
+</p>
+  <p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.11-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/sarveshh/markdownerr#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/sarveshh/handwriter/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/jayehernandez/letra-extension" />
+  </a>
+</p>
+> Write your markdowns without ever checking the guide.
+<br>
+ 
+ ## ✨ Features
 
-#### Markdownerr is a Markdown parser, previewer and editor.
+- Live Preview
+- Copy to clipboard
+- Save results as HTML, markdowns and markdown file.
+- Dark Mode
+- Share markdown and result as permalink.
+- Check results are source code, debug and add HTML as and for markdown.
+- Preview Markdown in Full Screen
+- Every Markdown syntax is just a tap away, Click Guide in Navbar.
 
-It helps making Github Readme's, writing blogs and whatever website supports markdown, a brisk.
+### Setup Markdownerr locally
 
----
+1. Fork this repository
+2. Clone this project locally using
+> git clone https://github.com/{your-username}/handwriter.git
+3. cd markdownerr
+4. npm install
+5. npm run devStart
 
-### Check out Guide to explore all Markdownerr can do.
-### Click on Demo to check all exciting features markdownerr has to offer.
+## 🛠 Built With
 
-***
+- [Node.js](https://nodejs.org/en/) - Backend
+- [Remarkable](https://github.com/jonschlinkert/remarkable)
 
-### Project related links
+## 🤝 Contributing
 
-Check this project out on [Github](http://www.github.com/sarveshh/markdownerr)
+Contributions, issues and feature requests are welcome!<br />
 
-***
-*** 
-# Here's are some markdown elements markdowner supports
-***
+Feel free to check the [issues page](https://github.com/sarveshh/markdownerr/issues) for any open issues.
 
+You can also suggest a new feature by creating an Issue. Please wait for confirmation before working on it.
 
+Give a ⭐️ if this project helped you!
 
-# h1 Headings
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
+[<img alt="Buy me a Coffee Button" width=200 src="https://c5.patreon.com/external/logo/become_a_patron_button.png">](https://www.patreon.com/bePatron?u=42419480) &nbsp; [<img alt="Buy me a Coffee Button" width=200 src="https://cdn.buymeacoffee.com/buttons/default-black.png">](https://www.buymeacoffee.com/sarveshh)
 
-***
+## 📝 License
 
-# Text Emphasis
-
-**This is bold text**
-
-*This is italic text*
-
-~~Deleted text~~
-
-Superscript: 19^th^
-
-Subscript: H~2~O
-
-++Inserted text++
-
-==Marked text==
-
-***
-
-# Blockquotes
-
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
-
-***
-
-# Code
-
-Inline `code`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code "fences"
-
-```
-Sample text here...
-```
-
-Syntax highlighting
-
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-```
-
-***
-# Tables
-
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-***
-
-# Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-***
-## Footnotes
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: #### Fork me on [Github](http://www.github.com/sarveshh/markdownerr)
-***
-# Definition lists
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with *inline markup*
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
+This project is [MIT](https://github.com/sarveshh/handwriter/LICENSE.md) licensed.
